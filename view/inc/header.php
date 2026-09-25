@@ -35,30 +35,80 @@ function navLink(string $page, string $label, string $currentPage): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= h($pageTitle) ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Icônes de la maquette (solar, guidance) -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js" defer></script>
 </head>
 <body>
 
 <header class="site-header">
-    <nav class="navbar navbar-expand-lg" aria-label="Navigation principale">
-        <div class="container">
-            <a class="navbar-brand" href="?page=accueil">Maison Rosalie</a>
+    <!-- Bandeau d'information en haut -->
+    <p class="header-banner">Livraison standard gratuite avec commande à 125 $ vers toutes les destinations avec des températures inférieures à 75ºF.</p>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-                    aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    <nav class="navbar navbar-expand-lg header-main" aria-label="Navigation principale">
+        <!-- Logo + slogan (le logo ramène à l'accueil) -->
+        <a class="header-brand" href="?page=accueil">
+            <img src="assets/img/logo.png" alt="Maison Rosalie" class="header-logo">
+            <span class="header-tagline">L'art de l'artisanat Belge depuis 1928</span>
+        </a>
 
+        <div class="header-right">
+            <!-- Recherche + icônes compte et recettes -->
+            <div class="header-tools">
+                <form class="header-search" role="search" method="get">
+                    <input type="hidden" name="page" value="recettes">
+                    <input type="search" name="q" placeholder="recherche" aria-label="Rechercher une recette">
+                    <button type="submit" aria-label="Lancer la recherche">
+                        <iconify-icon icon="solar:magnifer-linear"></iconify-icon>
+                    </button>
+                </form>
+
+                <div class="header-icons">
+                    <!-- Compte : menu avec déconnexion si connecté, sinon modale de connexion -->
+                    <?php if ($currentUser): ?>
+                        <div class="dropdown">
+                            <button type="button" class="header-icon" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Mon compte">
+                                <iconify-icon icon="solar:user-bold"></iconify-icon>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <span class="dropdown-item-text">Bonjour, <strong><?= h($currentUser['username']) ?></strong></span>
+                                <hr class="dropdown-divider">
+                                <form method="post" action="?page=deconnexion" class="m-0">
+                                    <button type="submit" class="dropdown-item">Déconnexion</button>
+                                </form>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <button type="button" class="header-icon" data-bs-toggle="modal" data-bs-target="#loginModal" aria-label="Connexion">
+                            <iconify-icon icon="solar:user-bold"></iconify-icon>
+                        </button>
+                    <?php endif; ?>
+
+                    <a class="header-icon" href="?page=recettes" aria-label="Nos recettes">
+                        <iconify-icon icon="solar:chef-hat-minimalistic-line-duotone"></iconify-icon>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                        aria-controls="mainNav" aria-expanded="false" aria-label="Ouvrir le menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!-- Menu principal (replié sur mobile) -->
             <div class="collapse navbar-collapse" id="mainNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><?= navLink('accueil', 'Accueil', $currentPage) ?></li>
+                <ul class="navbar-nav header-menu">
+                    <li class="nav-item"><?= navLink('apropos', 'À propos', $currentPage) ?></li>
 
-                    <!-- Menu déroulant Recettes, rempli depuis la base (FE-05) -->
+                    <!-- Menu déroulant Recette, rempli depuis la base (FE-05) -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle<?= $currentPage === 'recettes' ? ' active' : '' ?>" href="?page=recettes"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false"<?= $currentPage === 'recettes' ? ' aria-current="page"' : '' ?>>Recettes</a>
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false"<?= $currentPage === 'recettes' ? ' aria-current="page"' : '' ?>>Recette</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="?page=recettes">Toutes les recettes</a></li>
                             <?php if ($menuRecipes): ?>
@@ -70,22 +120,8 @@ function navLink(string $page, string $label, string $currentPage): string
                         </ul>
                     </li>
 
-                    <li class="nav-item"><?= navLink('apropos', 'À propos', $currentPage) ?></li>
                     <li class="nav-item"><?= navLink('contact', 'Contact', $currentPage) ?></li>
                 </ul>
-
-                <!-- Compte : nom + déconnexion si connecté, sinon connexion / inscription -->
-                <div class="d-flex align-items-center gap-2">
-                    <?php if ($currentUser): ?>
-                        <span class="navbar-text">Bonjour, <strong><?= h($currentUser['username']) ?></strong></span>
-                        <form method="post" action="?page=deconnexion" class="m-0">
-                            <button type="submit" class="btn btn-outline-rosalie btn-sm">Déconnexion</button>
-                        </form>
-                    <?php else: ?>
-                        <button type="button" class="btn btn-outline-rosalie btn-sm" data-bs-toggle="modal" data-bs-target="#loginModal">Connexion</button>
-                        <button type="button" class="btn btn-rosalie btn-sm" data-bs-toggle="modal" data-bs-target="#registerModal">Inscription</button>
-                    <?php endif; ?>
-                </div>
             </div>
         </div>
     </nav>

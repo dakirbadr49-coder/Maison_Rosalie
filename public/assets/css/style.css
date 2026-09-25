@@ -1,79 +1,246 @@
-/* Couleurs du site : chocolat #5a3825, caramel #c8864b, crème #fbf5ee */
+/* Couleurs du site : brun #432205, crème #FAF3E3 */
 
 body {
-    background-color: #fbf5ee;
+    background-color: #FAF3E3;
 }
 
 /* ===== En-tête ===== */
 
-/* Barre collée en haut pendant le défilement */
 .site-header {
-    background-color: #fff;
-    border-bottom: 3px solid #c8864b;
-    position: sticky;
-    top: 0;
-    z-index: 1020;
+    background-color: #FAF3E3;
 }
 
-.site-header .navbar-brand {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #5a3825;
+/* Bandeau brun avec le message de livraison */
+.header-banner {
+    margin: 0;
+    padding: 2px 16px;
+    background-color: #432205;
+    color: #fff;
+    font-family: 'Abhaya Libre', Georgia, serif;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
 }
 
-.site-header .nav-link {
-    color: #5a3825;
-    font-weight: 500;
+/* Zone principale : logo à gauche, outils et menu à droite */
+.header-main {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    padding: 20px 11.4% 28px 3.74%;
 }
 
-.site-header .nav-link:hover,
-.site-header .nav-link:focus-visible {
-    color: #c8864b;
+/* Logo + slogan centré dessous */
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo {
+    height: 124px;
+    width: auto;
+}
+
+.header-tagline {
+    margin-top: 27px;
+    font-family: 'Monarque', Georgia, serif;
+    font-size: 20px;
+    line-height: 25px;
+    color: #432205;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 6%;
+}
+
+/* Ligne du haut : recherche à gauche, icônes à droite */
+.header-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+}
+
+/* Recherche : simple trait souligné avec la loupe à droite */
+.header-search {
+    display: flex;
+    align-items: center;
+    width: 191px;
+    border-bottom: 1px solid #000;
+}
+
+.header-search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: transparent;
+    font-family: 'Abhaya Libre', Georgia, serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+}
+
+.header-search input::placeholder {
+    color: #000;
+}
+
+.header-search input:focus {
+    outline: none;
+}
+
+.header-search:focus-within {
+    border-bottom-width: 2px;
+}
+
+.header-search button {
+    border: none;
+    background: transparent;
+    padding: 0 0 2px;
+    color: #000;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* Icônes compte et recettes : mêmes colonnes de 120px que le menu,
+   donc chaque icône tombe au-dessus de « À propos » et « Recette » */
+.header-icons {
+    display: flex;
+    align-items: center;
+    margin-right: 120px; /* colonne vide au-dessus de « Contact » */
+}
+
+.header-icons > * {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+}
+
+.header-icon {
+    display: inline-flex;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #000;
+    font-size: 24px;
+}
+
+.header-icon:hover,
+.header-icon:focus-visible {
+    color: #432205;
+}
+
+/* Menu principal en bas à droite, à la hauteur du slogan */
+.header-right .navbar-collapse {
+    flex-grow: 0;
+}
+
+.header-menu {
+    margin-left: auto;
+}
+
+.header-menu .nav-item {
+    width: 120px;
+    text-align: center;
+}
+
+.header-menu .nav-link {
+    padding: 10px;
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    color: #432205;
+}
+
+.header-menu .nav-link:hover,
+.header-menu .nav-link:focus-visible {
+    color: #7a4a1f;
 }
 
 /* Page courante (FE-06) */
-.site-header .nav-link.active {
-    color: #c8864b;
-    border-bottom: 2px solid #c8864b;
+.header-menu .nav-link.active {
+    color: #432205;
+    text-decoration: underline;
+    text-underline-offset: 6px;
 }
 
-/* Boutons aux couleurs du site : plein (Inscription) et contour (Connexion) */
+/* Pas de flèche sous « Recette », comme sur la maquette */
+.header-menu .dropdown-toggle::after {
+    display: none;
+}
+
+.header-menu .dropdown-menu {
+    font-family: 'Josefin Sans', Arial, sans-serif;
+    border-color: #432205;
+}
+
+/* Boutons des modales aux couleurs du site */
 .btn-rosalie {
     color: #fff;
-    background-color: #5a3825;
-    border-color: #5a3825;
+    background-color: #432205;
+    border-color: #432205;
 }
 
 .btn-rosalie:hover,
 .btn-rosalie:focus-visible {
     color: #fff;
-    background-color: #3f2619;
-    border-color: #3f2619;
+    background-color: #2c1603;
+    border-color: #2c1603;
 }
 
-.btn-outline-rosalie {
-    color: #5a3825;
-    background-color: transparent;
-    border-color: #5a3825;
-}
-
-.btn-outline-rosalie:hover,
-.btn-outline-rosalie:focus-visible {
-    color: #fff;
-    background-color: #5a3825;
-    border-color: #5a3825;
-}
-
-/* Menu mobile replié : liens empilés, boutons en dessous */
+/* Mobile : logo plus petit, recherche pleine largeur, menu replié */
 @media (max-width: 991.98px) {
-    .site-header .nav-link.active {
-        border-bottom: none;
-        border-left: 3px solid #c8864b;
-        padding-left: .5rem;
+    .header-banner {
+        font-size: 13px;
+        line-height: 16px;
     }
 
-    .site-header .navbar-collapse .d-flex {
-        padding: .5rem 0 1rem;
+    .header-main {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+    }
+
+    .header-logo {
+        height: 64px;
+    }
+
+    .header-tagline {
+        margin-top: 6px;
+        font-size: 16px;
+    }
+
+    .header-right {
+        flex-basis: 100%;
+        margin: 12px 0 0;
+    }
+
+    .header-tools {
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .header-search {
+        flex: 1;
+        width: auto;
+        min-width: 0;
+    }
+
+    .header-icons {
+        gap: 16px;
+        margin-right: 0;
+    }
+
+    .header-icons > *,
+    .header-menu .nav-item {
+        width: auto;
+        text-align: left;
+    }
+
+    .header-menu {
+        padding-top: 8px;
     }
 }
