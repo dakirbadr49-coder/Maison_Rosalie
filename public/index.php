@@ -1,22 +1,25 @@
 <?php
-session_start();
+declare(strict_types=1);
 
-require_once __DIR__ . "/../config-dev.php";
-require_once "../view/accueil.php";
-require_once "../view/contact.php";
+use model\MyPDO;
+
+session_start();
+require_once __DIR__ . '/../config-dev.php';
+
+// Autoload: model\manager\RecipeManager => /model/manager/RecipeManager.php
+spl_autoload_register(function (string $class): void {
+    $path = dirname(__DIR__) . '/' . str_replace('\\', '/', $class) . '.php';
+    if (is_file($path)) require_once $path;
+});
 
 try {
-    $connectPDO = new PDO(
-        DB_TYPE.':host='.DB_HOST.';port='.DB_PORT.';dbname='.DB_NAME.';charset='.DB_CHARSET,
-        DB_LOGIN,
-        DB_PWD
-    );
-        $connectPDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-        $connectPDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-
-    
-}catch(Exception $e){
-    die($e->getMessage());
+    $connectPDO = MyPDO::getInstance();
+} catch (Throwable $e) {
+    http_response_code(500);
+    exit('Erreur de connexion à la base de données : ' . htmlspecialchars($e->getMessage()));
 }
-// test if connection works
-echo "Connexion DB OK<br>";
+
+require_once __DIR__ . '/../controller/publicController.php';
+
+// checking if connection is working
+echo "Connection OK";
