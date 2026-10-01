@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap" rel="stylesheet">
 
-<!-- ============================ -->
+    <!-- ============================ -->
 
     <title>Document</title>
 </head>
@@ -27,9 +27,15 @@
             <nav class="navbar">
                 <ul class="nav-list">
                     <li class="nav-item"><a class="nav-link" href="">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Recettes</a>
-                        <button class="dropdown-toggle" id="recipesDropdown" aria-label="Afficher les recettes"
-                            aria-expanded="false"> ▼</button>
+                    <li class=" dropdown">
+                        <button class="dropdown-btn" type="button">
+                            Recette
+                            <span class="arrow">▼</span>
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a href=""></a></li>
+                        </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="">A propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
