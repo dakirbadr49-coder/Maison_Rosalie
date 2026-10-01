@@ -37,7 +37,7 @@
                             <li><a href=""></a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="">A propos</a></li>
+                    <a class="nav-link" href="?page=apropos">A propos</a>
                     <li class="nav-item"><a class="nav-link" href="">Contact</a></li>
                 </ul>
             </nav>
