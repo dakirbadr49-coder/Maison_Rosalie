@@ -1,0 +1,68 @@
+/*-------CSS-reset--------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: white;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* Global Variables*/
+:root {
+    /* Color Palette */
+    --color-black: #121212;
+    --color-light-whit:rgba(225,225,225,1);
+
+    /* Backgroubds */
+    --bg-main:rgb(250, 243, 227);
+    --bg-hero:rgba(241, 150, 69, 0.28);
+    --bg-dark-drown:rgba(67, 34, 5, 1);
+
+    /* Typography Colors */
+    --text-primary:var(--bg-dark-drown);   /* Main body text */
+    --text-secondary:rgba(237, 110, 0, 0.7); /* Titles */
+    --text-tertiary: rgba(146, 127, 110, 1); /* Footer title */
+
+
+}
+
+/*-------HEADER------------*/
