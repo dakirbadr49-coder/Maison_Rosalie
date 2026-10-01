@@ -59,8 +59,8 @@ a {
   --color-light-white: rgba(225, 225, 225, 1);
 
   /* Backgroubds */
-  --bg-main: rgb(250, 243, 227);
-  --bg-hero: rgba(241, 150, 69, 0.28);
+  --bg-main: rgba(250, 243, 227, 1);
+  --bg-hero: rgba(237, 110, 0, 0.7);
   --bg-dark-drown: rgba(67, 34, 5, 1);
 
   /* Typography Colors */
@@ -77,6 +77,18 @@ a {
 }
 
 /*-------HEADER------------*/
+.header{
+  padding: 28px;
+
+}
+.header .container {
+display: flex;
+justify-content: space-between;
+}
+.logo-wrap{
+display: flex;
+align-items: center;
+}
 .logo {
   display: block;
   width: 212px;
@@ -87,45 +99,205 @@ a {
   width: 100%;
   height: auto;
 }
-.header {
-  padding: 32px;
-  background-color: var(--bg-main);
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-brand a {
+  display: block;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--bg-dark-brown);
+  transition: fill 0.2s ease;
+}
+
+.nav-brand a:hover .icon {
+  fill: var(--text-secondary);
 }
 
 .nav-list {
   display: flex;
+  align-items: center;
   gap: 30px;
-  align-items: center;
+  margin: 0;
+  padding: 0;
 }
-.header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.dropdown {
-    position: relative;
-  }
-  
-  .dropdown-btn {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-  }
-  
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-  
-  .dropdown-menu.show {
-    display: block;
-  }
 
 .nav-link {
+  position: relative;
+  display: inline-block;
   color: var(--text-primary);
   font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::before {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 1.5px;
+  background-color: var(--text-secondary);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--text-secondary);
+}
+
+.nav-link:hover::before,
+.nav-link:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  color: var(--text-primary);
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* -----Tablet and mobile navigation ----------*/
+@media (max-width: 900px) {
+  .container {
+    padding-inline: 24px;
+  }
+
+  .header {
+    padding-block: 14px;
+  }
+
+  .header .container {
+    gap: 12px;
+  }
+
+  .logo {
+    flex-basis: auto;
+    width: clamp(120px, 32vw, 190px);
+  }
+
+  .navbar {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-top {
+    gap: 10px;
+  }
+
+  .nav-brand {
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+    flex: 0 0 44px;
+  }
+
+  .nav-list {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    z-index: 30;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: min(280px, calc(100vw - 32px));
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: var(--bg-main);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.14);
+  }
+
+  .nav-list.is-open {
+    display: flex;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 10px 4px;
+  }
+
+  .nav-link::before {
+    bottom: 5px;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding-inline: 14px;
+  }
+
+  .logo {
+    width: 112px;
+  }
+
+  .nav-top,
+  .nav-brand {
+    gap: 8px;
+  }
+
+  .icon {
+    width: 21px;
+    height: 21px;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    flex-basis: 40px;
+  }
 }
 
 /* ---------- HERO ---------- */
@@ -153,11 +325,12 @@ a {
 }
 
 .hero_eyebrow {
+  font-family: "Bodoni Moda", serif;
   position: absolute;
   top: 0;
   left: 0;
 
-  font-size: 18px;
+  font-size:30px;
   text-transform: uppercase;
 }
 
@@ -198,13 +371,20 @@ a {
 
 .hero_savoir_plus{
   position: relative;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
-.hero_savoir_plus:after{
+.hero_savoir_plus::after{
   position: absolute;
   content: "";
-  height: 5px;
+  height: 3px;
   left: 0;
+  bottom: -5px;
+  width: 100%;
+  background: var(--text-primary);
+  transition: all .2s;
+}
+.hero_savoir_plus:hover::after{
+
 }
 
 
