@@ -59,8 +59,8 @@ a {
   --color-light-white: rgba(225, 225, 225, 1);
 
   /* Backgroubds */
-  --bg-main: rgb(250, 243, 227);
-  --bg-hero: rgba(241, 150, 69, 0.28);
+  --bg-main: rgba(250, 243, 227, 1);
+  --bg-hero: rgba(237, 110, 0, 0.7);
   --bg-dark-drown: rgba(67, 34, 5, 1);
 
   /* Typography Colors */
@@ -101,6 +101,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.nav-brand {
+  display: flex;
+  align-items: center; 
+  gap: 0.5rem;
 }
 .dropdown {
     position: relative;
@@ -153,11 +158,12 @@ a {
 }
 
 .hero_eyebrow {
+  font-family: "Bodoni Moda", serif;
   position: absolute;
   top: 0;
   left: 0;
 
-  font-size: 18px;
+  font-size:30px;
   text-transform: uppercase;
 }
 
@@ -198,13 +204,20 @@ a {
 
 .hero_savoir_plus{
   position: relative;
-  color: var(--text-secondary);
+  color: var(--text-primary);
 }
-.hero_savoir_plus:after{
+.hero_savoir_plus::after{
   position: absolute;
   content: "";
-  height: 5px;
+  height: 3px;
   left: 0;
+  bottom: -5px;
+  width: 100%;
+  background: var(--text-primary);
+  transition: all .2s;
+}
+.hero_savoir_plus:hover::after{
+
 }
 
 
