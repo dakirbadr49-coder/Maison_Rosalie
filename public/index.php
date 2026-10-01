@@ -22,4 +22,4 @@ try {
 require_once __DIR__ . '/../controller/publicController.php';
 
 // checking if connection is working
-echo "Connection OK";
+/* echo "Connection OK"; */
