@@ -94,8 +94,72 @@ a {
 
 .nav-list {
   display: flex;
-  gap: 30px;
   align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link,
+.dropdown-btn {
+  position: relative;
+  color: var(--text-primary);
+  font-size: 18px;
+  transition: color 0.2s ease;
+}
+
+.nav-link::before,
+.dropdown-btn::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--text-secondary);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover,
+.dropdown-btn:hover {
+  color: var(--text-secondary);
+}
+
+.nav-link:hover::before,
+.dropdown-btn:hover::before {
+  width: 100%;
+  background-color: var(--text-secondary);
+}
+
+.dropdown-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+/* -----Bootstrap dropdown------- */
+
+.dropdown-menu {
+  padding: 8px;
+  background-color: var(--bg-main);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  color: var(--text-primary);
+  border-radius: 5px;
+}
+
+.dropdown-item:hover {
+  color: var(--text-secondary);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 .header .container {
   display: flex;
@@ -104,8 +168,16 @@ a {
 }
 .nav-brand {
   display: flex;
-  align-items: center; 
-  gap: 0.5rem;
+  margin-left: auto;
+  gap: 1rem;
+}
+.icon {
+  fill: var(--bg-dark-drown);
+  transition: fill 0.2s ease;
+}
+
+.icon:hover {
+  fill: var(--text-secondary);
 }
 .dropdown {
     position: relative;
@@ -131,6 +203,37 @@ a {
 .nav-link {
   color: var(--text-primary);
   font-size: 18px;
+}
+.nav-link:hover{
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+.navbar{
+  display: flex;
+  flex-direction: column;
+gap: 15px;
+}
+/* ----Bootstrap dropdown -------*/
+
+.dropdown-menu {
+  padding: 8px;
+  background-color: var(--bg-main);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  color: var(--text-primary);
+  border-radius: 5px;
+}
+
+.dropdown-item:hover {
+  color: var(--text-secondary);
+  background-color: rgba(0, 0, 0, 0.05);
+
 }
 
 /* ---------- HERO ---------- */
