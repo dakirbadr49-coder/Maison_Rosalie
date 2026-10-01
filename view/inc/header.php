@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 <!-- Google-fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
         <div class="container">
 
             <div>
-                <a class="logo" href="/"><img src="/images/logo/horiz-logo.png" alt="Maison Rasolie"></a>
+                <a class="logo" href="/"><img src="images/logo/horiz-logo.png" alt="Maison Rasolie"></a>
             </div>
 
             <nav class="navbar">
