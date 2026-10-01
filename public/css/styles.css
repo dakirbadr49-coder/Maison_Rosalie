@@ -59,8 +59,8 @@ a {
   --color-light-white: rgba(225, 225, 225, 1);
 
   /* Backgroubds */
-  --bg-main: rgba(250, 243, 227, 1);
-  --bg-hero: rgba(237, 110, 0, 0.7);
+  --bg-main: rgb(250, 243, 227);
+  --bg-hero: rgba(241, 150, 69, 0.69);
   --bg-dark-drown: rgba(67, 34, 5, 1);
 
   /* Typography Colors */
@@ -594,5 +594,43 @@ align-items: center;
 
   .footer-social {
     flex-direction: row;
+  }
+}
+
+/*-------A PROPOS------------*/
+.apropos_title {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.apropos_hero {
+  padding: 80px 24px 120px;
+  background-image: url("../images/apropos/apropos-background.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--text-primary);
+}
+
+.apropos_subtitle {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.apropos_top {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--bg-dark-drown);
+}
+
+@media screen and (max-width: 768px) {
+  .apropos_hero {
+    padding: 56px 24px 112px;
+    background-image: linear-gradient(rgba(250, 243, 227, 0.88), rgba(250, 243, 227, 0.88)),
+      url("../images/apropos/apropos-background.jpg");
   }
 }
