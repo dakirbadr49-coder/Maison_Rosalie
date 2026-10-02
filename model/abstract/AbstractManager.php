@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace model\abstract;
 
 use model\interface\ManagerInterface;
-use model\MyPDO;
+use PDO;
 
 abstract class AbstractManager implements ManagerInterface
 {
-    protected MyPDO $connect;
+    protected PDO $connect;
 
-    public function __construct(MyPDO $connect)
+    public function __construct(PDO $connect)
     {
         $this->connect = $connect;
     }

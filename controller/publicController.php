@@ -6,12 +6,10 @@ $menuRecipes = $recipeManager->getRecipesForMenu();
 $page = $_GET['page'] ?? 'accueil';
 if ($page === 'accueil') {
 
-    require_once __DIR__ . '/../view/accueil.php';
-}
-if ($page === 'accueil') {
-    require_once __DIR__ . '/../view/accueil.php';
+    require_once RACINE_PATH . '/view/accueil.php';
+
 } elseif ($page === 'apropos') {
-    require_once __DIR__ . '/../view/apropos.php';
+    require_once RACINE_PATH. '/view/apropos.php';
 } elseif ($page === 'contact') {
-    require_once __DIR__ . '/../view/contact.php';
+    require_once RACINE_PATH . '/view/contact.php';
 }

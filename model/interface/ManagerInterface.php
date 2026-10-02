@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace model\interface;
 
-use model\MyPDO;
+use PDO;
 
 interface ManagerInterface
 {
-    public function __construct(MyPDO $connect);
+    public function __construct(PDO $connect);
 }
