@@ -4,11 +4,6 @@ use model\manager\RecipeManager;
 $recipeManager = new RecipeManager($connectPDO);
 $menuRecipes = $recipeManager->getRecipesForMenu();
 
-// inscription
-if (isset($_POST['register'])) {
-    // TODO
-}
-
 $page = $_GET['page'] ?? 'accueil';
 if ($page === 'accueil') {
 
@@ -25,4 +20,15 @@ elseif ($page === 'recettes') {
 }
 elseif ($page === 'detailsRecet') {
     require_once RACINE_PATH. '/view/recetteDetails.php';
+}
+elseif ($page === 'inscription') {
+    $errors = [];
+    $success = false;
+
+    // traitement formulaire
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // TODO
+    }
+
+    require_once RACINE_PATH. '/view/inscription.php';
 }

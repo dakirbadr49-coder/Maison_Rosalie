@@ -32,13 +32,3 @@ document.addEventListener("click", (e) => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") toggleLogin(false);
 });
-
-// Vers inscription
-const registerOpen = document.querySelector(".register-open");
-const registerPanel = document.querySelector("#register-panel");
-
-registerOpen.addEventListener("click", () => {
-  toggleLogin(false);
-  registerPanel.classList.add("is-open");
-  registerOpen.setAttribute("aria-expanded", true);
-});
