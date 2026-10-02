@@ -73,7 +73,27 @@
               </div>
 
               <p class="login-or">ou</p>
-              <a class="login-register" href="/?page=inscription">Crée un compte</a>
+              <button class="login-register register-open" type="button" aria-expanded="false" aria-controls="register-panel">Crée un compte</button>
+            </div>
+
+            <!-- Panneau inscription -->
+            <div class="login-panel register-panel" id="register-panel">
+              <p class="login-title">Créer un compte</p>
+              <form class="login-form" method="post" action="">
+                <label for="register-username">Nom d'utilisateur</label>
+                <input type="text" id="register-username" name="username" maxlength="50" required>
+                <label for="register-email">E-mail</label>
+                <input type="email" id="register-email" name="email" maxlength="254" required>
+                <label for="register-password">Mot de passe</label>
+                <input type="password" id="register-password" name="password" required>
+                <label for="register-confirm">Confirmer le mot de passe</label>
+                <input type="password" id="register-confirm" name="password_confirm" required>
+
+                <button class="login-submit" type="submit" name="register">Créer mon compte</button>
+              </form>
+
+              <p class="login-or">ou</p>
+              <button class="login-register login-back" type="button">Se connecter</button>
             </div>
             </div>
             <a href="">
