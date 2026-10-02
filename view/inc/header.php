@@ -94,18 +94,14 @@
         </div>
         <ul class="nav-list" id="main-menu">
           <li class="nav-item">
-            <a class="nav-link" href="#">Accueil</a>
+            <a class="nav-link" href="?page=accueil">Accueil</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Recettes</a>
+        
+          <li class="nav_item"><a class="nav-link" href="?page=recettes">Recettes</a></li>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">À propos</a>
-          </li>
+          <li class="nav_item"><a class="nav-link" href="?page=apropos">À propos</a></li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+          <li class="nav_item"><a class="nav-link" href="?page=contact">Contact</a></li>
         </ul>
       </nav>
     </div>
