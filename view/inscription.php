@@ -17,7 +17,7 @@ require_once __DIR__ . "/inc/header.php";
         </ul>
     <?php endif; ?>
 
-    <form class="register-form" method="post" action="/?page=inscription">
+    <form class="register-form" method="post" action="?page=inscription">
         <label for="register-username">Nom d'utilisateur</label>
         <input type="text" id="register-username" name="username" maxlength="50"
             value="<?= htmlspecialchars($_POST['username'] ?? '') ?>" required>
