@@ -12,7 +12,11 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--bg-main); /* côtés */
+  /* côtés + espace */
+  background: linear-gradient(to right,
+    var(--bg-main) calc(50% - 732px),
+    var(--color-light-white) calc(50% - 732px) calc(50% + 732px),
+    var(--bg-main) calc(50% + 732px));
 }
 
 body {
