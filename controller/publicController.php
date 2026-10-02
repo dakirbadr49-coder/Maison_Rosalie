@@ -21,3 +21,14 @@ elseif ($page === 'recettes') {
 elseif ($page === 'detailsRecet') {
     require_once RACINE_PATH. '/view/recetteDetails.php';
 }
+elseif ($page === 'inscription') {
+    $errors = [];
+    $success = false;
+
+    // traitement formulaire
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // TODO
+    }
+
+    require_once RACINE_PATH. '/view/inscription.php';
+}
