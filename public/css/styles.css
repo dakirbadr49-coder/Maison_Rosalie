@@ -14,9 +14,9 @@ html {
   scroll-behavior: smooth;
   /* côtés + espace */
   background: linear-gradient(to right,
-    var(--bg-main) calc(50% - 732px),
-    white calc(50% - 732px) calc(50% + 732px),
-    var(--bg-main) calc(50% + 732px));
+    var(--bg-main) calc(50% - 724px),
+    white calc(50% - 724px) calc(50% + 724px),
+    var(--bg-main) calc(50% + 724px));
 }
 
 body {
