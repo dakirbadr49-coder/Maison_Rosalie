@@ -10,4 +10,6 @@ if ($page === 'accueil') {
 
 } elseif ($page === 'apropos') {
     require_once RACINE_PATH. '/view/apropos.php';
+} elseif ($page === 'contact') {
+    require_once RACINE_PATH . '/view/contact.php';
 }
