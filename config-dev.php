@@ -9,3 +9,5 @@ const DB_CHARSET = "utf8mb4";
 
 const DB_TYPE = "mysql";
 
+// racine de notre site pour PHP
+const RACINE_PATH = __DIR__;

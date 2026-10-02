@@ -59,8 +59,7 @@ a {
   --color-light-white: rgba(225, 225, 225, 1);
 
   /* Backgroubds */
-  --bg-main: rgb(250, 243, 227);
-  --bg-hero: rgba(241, 150, 69, 0.69);
+  --bg-main: rgba(250, 243, 227,1);
   --bg-dark-drown: rgba(67, 34, 5, 1);
 
   /* Typography Colors */
@@ -314,79 +313,8 @@ align-items: center;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   align-items: center;
   gap: 40px;
-
   min-height: 600px;
 }
-
-.hero_visual {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.hero_eyebrow {
-  font-family: "Bodoni Moda", serif;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  font-size:30px;
-  text-transform: uppercase;
-}
-
-.hero_product {
-  display: block;
-  width: min(100%, 414px);
-  height: auto;
-  margin: 0 auto;
-}
-
-.hero_product-name {
-  margin-top: 10px;
-  font-size: 24px;
-}
-
-.hero_content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero_title {
-  margin: 0 0 30px;
-  font-size: clamp(42px, 5vw, 70px);
-  line-height: 1;
-  font-weight: 400;
-}
-
-.hero_description {
-  margin: 0 0 40px;
-
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-.hero_savoir_plus{
-  position: relative;
-  color: var(--text-primary);
-}
-.hero_savoir_plus::after{
-  position: absolute;
-  content: "";
-  height: 3px;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  background: var(--text-primary);
-  transition: all .2s;
-}
-.hero_savoir_plus:hover::after{
-
-}
-
 
 .hero_decoration {
   position: absolute;
@@ -397,8 +325,32 @@ align-items: center;
   height: auto;
   transform: translateY(-7%);
 }
-
-
+.hero-text{
+display: flex;
+flex-direction: column;
+gap: 15px;
+align-items: center;
+text-align: center;
+}
+.hero-title{
+font-size: 64px;
+}
+.hero-subtitle{
+  font-size: 24px;
+}
+.hero-link {
+width: 280px;
+  text-align: center; 
+  box-sizing: border-box; 
+  
+  background: var(--text-primary);
+  color: var(--color-white);
+  padding: 10px;
+  border-radius: 20px;
+}
+.hero-img{
+  transform: rotate(-15deg);
+}
 /* ---------- TABLET ---------- */
 
 @media screen and (max-width: 1024px) {
