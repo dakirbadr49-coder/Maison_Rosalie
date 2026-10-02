@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-main); /* côtés */
 }
 
 body {
@@ -19,6 +20,8 @@ body {
   line-height: 1.5;
   background-color: white;
   font-family: "Abyssinica SIL", serif;
+  max-width: 1440px;   /* largeur max */
+  margin-inline: auto; /* centré */
 }
 
 img,
